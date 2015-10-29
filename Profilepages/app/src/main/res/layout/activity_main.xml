@@ -37,11 +37,30 @@
         android:layout_height="wrap_content">
 
 
+        <EditText android:id="@+id/Rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Rating"
+            android:paddingTop="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/joeRating"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
     <EditText android:id="@+id/Rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/Rate"
-        android:paddingTop="50dp" />
+        android:paddingTop="40dp" />
 
     <Button
         android:layout_width="50dp"

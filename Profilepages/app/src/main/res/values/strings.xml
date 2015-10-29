@@ -6,6 +6,7 @@
     <string name="Rate">Rate: </string>
     <string name="Rating">Rating: </string>
     <string name="mortRating">4.7</string>
+    <string name="joeRating">3.5</string>
     <string name="Rating1">1</string>
     <string name="Rating2">2</string>
     <string name="Rating3">3</string>
@@ -15,4 +16,5 @@
     <string name="title_activity_my_profile">MyProfile</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_new_bill">NewBill</string>
 </resources>

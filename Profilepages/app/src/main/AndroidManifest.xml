@@ -20,6 +20,10 @@
             android:name=".MyProfile"
             android:label="@string/title_activity_my_profile" >
         </activity>
+        <activity
+            android:name=".NewBill"
+            android:label="@string/title_activity_new_bill" >
+        </activity>
     </application>
 
 </manifest>
