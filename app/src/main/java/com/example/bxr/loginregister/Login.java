@@ -44,12 +44,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             //If login is successful
             case R.id.bLogin:
 
-                String email = etEmail.getText().toString();
-                String password = etPassword.getText().toString();
+//                String email = etEmail.getText().toString();
+//                String password = etPassword.getText().toString();
+//
+//                User user = new User(email, password);
 
-                User user = new User(email, password);
+                startActivity(new Intent(this, HomePage.class));
 
-                authenticate(user);
+//                authenticate(user);
 
 
 
