@@ -87,6 +87,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void logUserIn(User returnedUser){
+        System.out.println("Printing returnedUser last name0987654 " + returnedUser.last_name);
         userLocalStore.storeUserData(returnedUser);
         userLocalStore.setUserLoggedIn(true);
 

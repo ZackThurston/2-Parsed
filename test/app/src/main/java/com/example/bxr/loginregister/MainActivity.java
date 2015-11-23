@@ -1,5 +1,6 @@
 package com.example.bxr.loginregister;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,8 +15,8 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button bLogout, bEditProfile, bFinishEdit;
-    EditText etFirstName, etLastName, etEmail, etPassword;
+    Button bFinishEdit;
+    EditText etFirstName, etLastName, etEmail, etPassword, confirmPassword;
     UserLocalStore userLocalStore;
 
     @Override
@@ -27,13 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etLastName = (EditText) findViewById(R.id.etLastName);
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
+        confirmPassword = (EditText) findViewById(R.id.confirmPassword);
 
-        bLogout = (Button) findViewById(R.id.bLogout);
-        bEditProfile = (Button) findViewById(R.id.bEditProfile);
         bFinishEdit = (Button) findViewById(R.id.bFinishEdit);
 
-        bLogout.setOnClickListener(this);
-        bEditProfile.setOnClickListener(this);
         bFinishEdit.setOnClickListener(this);
 
         userLocalStore = new UserLocalStore(this);
@@ -79,25 +77,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-            case R.id.bEditProfile:
-
-                startActivity(new Intent(this, EditProfile.class));
-
-                break;
 
             case R.id.bFinishEdit:
+
+                User user = userLocalStore.getLoggedInUser();
 
                 String first_name = etFirstName.getText().toString();
                 String last_name = etLastName.getText().toString();
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
+                String password2 = confirmPassword.getText().toString();
+                if( password.equals("")){
+                    password = user.password;
+                    password2 = user.password;
+                }
 
-                User user = new User(first_name, last_name, email, password);
+                if( password.equals(password2) ){
 
-                editUser(user);
+                    User updatedUser = new User(first_name, last_name, email, password, user.user_id, user.house);
+                    userLocalStore.storeUserData(updatedUser);
 
-                startActivity(new Intent(this, HomePage.class));
+                    editUser(updatedUser);
 
+                    startActivity(new Intent(this, MyProfile.class));
+                }else {
+                    showErrorMessage();
+                }
         }
     }
 
@@ -106,9 +111,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         serverRequest.editUserDataInBackground(user, new GetUserCallback() {
             @Override
             public void done(User returnedUser) {
-                startActivity(new Intent(MainActivity.this, HomePage.class));
+                startActivity(new Intent(MainActivity.this, MyProfile.class));
             }
         });
+    }
+
+    private void showErrorMessage(){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
+        dialogBuilder.setMessage("Passwords did not match");
+        dialogBuilder.setPositiveButton("Ok", null);
+        dialogBuilder.show();
     }
 
 }

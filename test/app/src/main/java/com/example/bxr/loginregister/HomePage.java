@@ -7,12 +7,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class HomePage extends AppCompatActivity implements View.OnClickListener {
 
     Button bLogout;
     EditText etFirstName;
-    TextView tvMyProfile;
+    TextView tvMyProfile, tvHisProfile, houseName;
     UserLocalStore userLocalStore;
 
     @Override
@@ -22,10 +33,13 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
 
         bLogout = (Button) findViewById(R.id.bLogout);
         tvMyProfile = (TextView) findViewById(R.id.tvMyProfile);
+        tvHisProfile = (TextView) findViewById(R.id.tvHisProfile);
+        houseName = (TextView) findViewById(R.id.houseName);
         etFirstName = (EditText) findViewById(R.id.etFirstName);
 
         bLogout.setOnClickListener(this);
         tvMyProfile.setOnClickListener(this);
+        tvHisProfile.setOnClickListener(this);
 
         userLocalStore = new UserLocalStore(this);
 
@@ -46,11 +60,21 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void displayUserDetails(){
-        //User user = userLocalStore.getLoggedInUser();
+        User user = userLocalStore.getLoggedInUser();
+        User otherUser = new User("test");
+        ServerRequest serverRequest = new ServerRequest(this);
+        serverRequest.fetchHouseMateDataInBackground(otherUser, new GetUserCallback() {
+            @Override
+            public void done(User returnedUser) {
+                tvHisProfile.setText(returnedUser.first_name);
+            }
+        });
 
-        //etFirstName.setText(user.first_name);
-        //etLastName.setText(user.last_name);
-        //etEmail.setText(user.email);
+        tvMyProfile.setText(user.first_name);
+        System.out.println("house for home page" + user.house);
+        houseName.setText(user.house);
+//        etLastName.setText(user.last_name);
+//        etEmail.setText(user.email);
 
     }
 
@@ -74,6 +98,11 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
             case R.id.tvMyProfile:
 
                 startActivity(new Intent(this, MyProfile.class));
+                break;
+
+            case R.id.tvHisProfile:
+
+                startActivity(new Intent(this, HisProfile.class));
                 break;
 
         }

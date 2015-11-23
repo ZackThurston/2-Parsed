@@ -49,24 +49,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Confirm password"
+        android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/bLogout"
-        android:text="@string/logout"
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bEditProfile"
-        android:text="@string/edit_profile"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/bFinishEdit"
-        android:text="@string/finish_edit"/>
+        android:text="Done"/>
 
 
 </LinearLayout>
