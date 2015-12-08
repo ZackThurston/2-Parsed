@@ -89,6 +89,7 @@ public class ServerRequest {
                         .appendQueryParameter("first_name", user.first_name)
                         .appendQueryParameter("last_name", user.last_name)
                         .appendQueryParameter("email", user.email)
+                        .appendQueryParameter("house", user.house)
                         .appendQueryParameter("password", user.password);
                 String query = builder.build().getEncodedQuery();
                 Log.d("query", query);
@@ -245,6 +246,8 @@ public class ServerRequest {
                         .appendQueryParameter("first_name", user.first_name)
                         .appendQueryParameter("last_name", user.last_name)
                         .appendQueryParameter("password", user.password)
+                        .appendQueryParameter("email", user.email)
+                        .appendQueryParameter("house", user.house)
                         .appendQueryParameter("user_id", ""+user.user_id);
                 String query = builder.build().getEncodedQuery();
                 Log.d("query", query);
@@ -333,7 +336,6 @@ public class ServerRequest {
                     Integer user_id = jsonResponse.getInt("user_id");
                     String house = jsonResponse.getString("house");
                     returnedUser = new User(name, last_name, email, password, user_id, house);
-                    Log.d("returned user's house",returnedUser.house);
                 }
 
             } catch (Exception e) {

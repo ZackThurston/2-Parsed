@@ -16,7 +16,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button bFinishEdit;
-    EditText etFirstName, etLastName, etEmail, etPassword, confirmPassword;
+    EditText etFirstName, etLastName, etEmail, etPassword, confirmPassword, etHouse;
     UserLocalStore userLocalStore;
 
     @Override
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etFirstName = (EditText) findViewById(R.id.etFirstName);
         etLastName = (EditText) findViewById(R.id.etLastName);
         etEmail = (EditText) findViewById(R.id.etEmail);
+        etHouse = (EditText) findViewById(R.id.etHouse);
         etPassword = (EditText) findViewById(R.id.etPassword);
         confirmPassword = (EditText) findViewById(R.id.confirmPassword);
 
@@ -59,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etFirstName.setText(user.first_name);
         etLastName.setText(user.last_name);
         etEmail.setText(user.email);
+        if( user.house.equals("NULL"))
+            etHouse.setText("");
+        else
+            etHouse.setText(user.house);
 
     }
     private boolean authenticate() {
@@ -87,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String first_name = etFirstName.getText().toString();
                 String last_name = etLastName.getText().toString();
                 String email = etEmail.getText().toString();
+                String house = etHouse.getText().toString();
                 String password = etPassword.getText().toString();
                 String password2 = confirmPassword.getText().toString();
                 if( password.equals("")){
@@ -94,9 +100,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     password2 = user.password;
                 }
 
+                if( house.equals(""))
+                    house = "NULL";
+
                 if( password.equals(password2) ){
 
-                    User updatedUser = new User(first_name, last_name, email, password, user.user_id, user.house);
+                    User updatedUser = new User(first_name, last_name, email, password, user.user_id, house);
                     userLocalStore.storeUserData(updatedUser);
 
                     editUser(updatedUser);

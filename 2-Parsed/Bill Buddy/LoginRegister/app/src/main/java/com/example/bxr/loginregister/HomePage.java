@@ -65,18 +65,22 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
 
     private void displayUserDetails(){
         User user = userLocalStore.getLoggedInUser();
-        User otherUser = new User("test");
-        ServerRequest serverRequest = new ServerRequest(this);
-        serverRequest.fetchHouseMateDataInBackground(otherUser, new GetUserCallback() {
-            @Override
-            public void done(User returnedUser) {
-                tvHisProfile.setText(returnedUser.first_name);
-            }
-        });
-
+        if( !user.house.equals("NULL")) {
+            User otherUser = new User("test");
+            ServerRequest serverRequest = new ServerRequest(this);
+            serverRequest.fetchHouseMateDataInBackground(otherUser, new GetUserCallback() {
+                @Override
+                public void done(User returnedUser) {
+                    tvHisProfile.setText(returnedUser.first_name);
+                }
+            });
+        }
         tvMyProfile.setText(user.first_name);
         System.out.println("house for home page" + user.house);
-        houseName.setText(user.house);
+        if( user.house.equals("NULL") )
+            houseName.setText("You currently don't belong to a house");
+        else
+            houseName.setText(user.house);
 //        etLastName.setText(user.last_name);
 //        etEmail.setText(user.email);
 

@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class MyProfile extends AppCompatActivity implements View.OnClickListener {
 
     Button editProfile, homePage;
-    TextView name, lastName, email, user_id;
+    TextView name, lastName, email, house;
     UserLocalStore userLocalStore;
 
 
@@ -29,7 +29,7 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
         name = (TextView) findViewById(R.id.name);
         lastName = (TextView) findViewById(R.id.lastName);
         email = (TextView) findViewById(R.id.email);
-        user_id = (TextView) findViewById(R.id.user_id);
+        house = (TextView) findViewById(R.id.house);
 
 
 
@@ -54,7 +54,10 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
 
         name.setText(user.first_name);
         lastName.setText(user.last_name);
-        user_id.setText("" + user.user_id);
+        if( user.house != "NULL")
+            house.setText(user.house);
+        else
+            house.setText("-");
         email.setText(user.email);
     }
 

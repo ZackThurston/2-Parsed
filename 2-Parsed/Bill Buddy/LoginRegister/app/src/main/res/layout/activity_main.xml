@@ -54,6 +54,16 @@
 
     <TextView
         android:layout_width="wrap_content"
+        android:text="@string/house"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etHouse"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:text="@string/password"
         android:layout_height="wrap_content" />
 
