@@ -1,5 +1,6 @@
 package com.example.bxr.loginregister;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -47,9 +48,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                User user = new User(first_name, last_name, email, password, 0, "NULL");
+                if(!first_name.trim().equals("") && !last_name.trim().equals("") && !email.trim().equals("") && !password.trim().equals("")) {
 
-                registerUser(user);
+                    User user = new User(first_name, last_name, email, password, 0, "NULL");
+
+                    registerUser(user);
+                }
+                else
+                    showErrorMessage();
 
                 break;
 
@@ -67,5 +73,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 startActivity(new Intent(Register.this, Login.class));
             }
         });
+    }
+
+    // If the user has entered incorrect credentials
+    private void showErrorMessage(){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Register.this);
+        dialogBuilder.setMessage("Please fill out all fields.");
+        dialogBuilder.setPositiveButton("Ok", null);
+        dialogBuilder.show();
     }
 }

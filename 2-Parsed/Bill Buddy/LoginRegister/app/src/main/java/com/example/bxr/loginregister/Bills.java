@@ -26,7 +26,7 @@ public class Bills extends AppCompatActivity implements View.OnClickListener {
 
     //EditText;
     ListView billList;
-    Button bNewBill;
+    Button bNewBill, home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +42,15 @@ public class Bills extends AppCompatActivity implements View.OnClickListener {
 
         bNewBill  = (Button) findViewById(R.id.bNewBill);
         bNewBill.setOnClickListener(this);
+
+        home  = (Button) findViewById(R.id.home);
+        home.setOnClickListener(this);
     }
 
 
     private void populateListView() {
         //Create list of items
-        String[] billArray = {"Water", "Electric", "Rent", "Groceries"};
+        String[] billArray = {"Water", "Electric", "Rent", "Groceries", "Electric", "Rent", "Groceries", "Electric", "Rent", "Groceries", "Electric", "Rent", "Groceries", "Electric", "Rent", "Groceries"};
 
         //Build Adapter
         ArrayAdapter<String> billAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, billArray);
@@ -73,6 +76,10 @@ public class Bills extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.bNewBill:
                 startActivity( new Intent(this, CreateBill.class));
+                break;
+
+            case R.id.home:
+                startActivity( new Intent(this, HomePage.class));
                 break;
         }
 

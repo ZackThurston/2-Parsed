@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class CreateBill extends AppCompatActivity implements View.OnClickListener{
 
-    Button bSubmit, bClear;
+    Button bSubmit, bClear, cancel;
     EditText etBillName, etBillAmount, etDate, etBillInfo;
     BillLocalStore billLocalStore;
 
@@ -31,10 +31,12 @@ public class CreateBill extends AppCompatActivity implements View.OnClickListene
         //Buttons for creating bill
         bSubmit = (Button) findViewById(R.id.bSubmit);
         bClear = (Button) findViewById(R.id.bClear);
+        cancel = (Button) findViewById(R.id.cancel);
 
         //Listeners
         bSubmit.setOnClickListener(this);
         bClear.setOnClickListener(this);
+        cancel.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -50,9 +52,18 @@ public class CreateBill extends AppCompatActivity implements View.OnClickListene
                 billLocalStore.storeBillData(bill);
                 submitBill(bill);
 
+                break;
+
+            case R.id.bClear:
+                etBillName.setText("");
+                etBillAmount.setText("");
+                etDate.setText("");
+                etBillInfo.setText("");
 
                 break;
-            case R.id.bClear:
+
+            case R.id.cancel:
+                startActivity(new Intent(this, Bills.class));
                 break;
         }
     }

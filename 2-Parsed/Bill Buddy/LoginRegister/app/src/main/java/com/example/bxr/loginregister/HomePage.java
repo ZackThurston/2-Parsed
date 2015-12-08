@@ -77,8 +77,9 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         }
         tvMyProfile.setText(user.first_name);
         System.out.println("house for home page" + user.house);
-        if( user.house.equals("NULL") )
-            houseName.setText("You currently don't belong to a house");
+        if( user.house.equals("NULL") ) {
+            houseName.setText("You currently don't belong to a house. To join a house, edit your profile and put the house's name that you want to join as the name of your house.");
+        }
         else
             houseName.setText(user.house);
 //        etLastName.setText(user.last_name);

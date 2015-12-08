@@ -15,7 +15,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button bFinishEdit;
+    Button bFinishEdit, cancel;
     EditText etFirstName, etLastName, etEmail, etPassword, confirmPassword, etHouse;
     UserLocalStore userLocalStore;
 
@@ -33,9 +33,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etPassword = (EditText) findViewById(R.id.etPassword);
         confirmPassword = (EditText) findViewById(R.id.confirmPassword);
 
+        cancel = (Button) findViewById(R.id.cancel);
         bFinishEdit = (Button) findViewById(R.id.bFinishEdit);
 
         bFinishEdit.setOnClickListener(this);
+        cancel.setOnClickListener(this);
 
         userLocalStore = new UserLocalStore(this);
     }
@@ -74,14 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.bLogout:
-
-                userLocalStore.clearUserData();
-                userLocalStore.setUserLoggedIn(false);
-
-
-                startActivity(new Intent(this, Login.class));
-
+            case R.id.cancel:
+                startActivity(new Intent(this, MyProfile.class));
                 break;
 
 

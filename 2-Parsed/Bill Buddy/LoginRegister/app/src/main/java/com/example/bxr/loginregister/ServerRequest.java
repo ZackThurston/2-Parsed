@@ -84,7 +84,7 @@ public class ServerRequest {
                 conn.setRequestMethod("POST");
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-
+                System.out.println("house is: " + user.house);
                 Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("first_name", user.first_name)
                         .appendQueryParameter("last_name", user.last_name)
