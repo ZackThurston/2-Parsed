@@ -373,6 +373,8 @@ public class ServerRequest {
 
     }
 
+
+
     //Bill information starts here
     public void storeBillDataInBackground(Bill bill, GetBillCallback callBack) {
         progressDialog.show();
@@ -438,6 +440,9 @@ public class ServerRequest {
             return null;
         }
     }
+
+
+
 
     public class FetchBillDataAsyncTask extends AsyncTask<Void, Void, Bill> {
 

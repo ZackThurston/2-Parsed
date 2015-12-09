@@ -14,4 +14,24 @@ public class Bill {
         this.bill_info = bill_info;
     }
 
+    public Bill(){
+        this.bill_name = "";
+        this.bill_amount = "";
+        this.bill_date = "";
+        this.bill_info = "";
+    }
+
+    public String getBill_name(){
+        return this.bill_name;
+    }
+
+    public String getBill_amount(){
+        return this.bill_amount;
+    }
+    public String getBill_date(){
+        return this.bill_date;
+    }
+    public String getBill_info(){
+        return this.bill_info;
+    }
 }

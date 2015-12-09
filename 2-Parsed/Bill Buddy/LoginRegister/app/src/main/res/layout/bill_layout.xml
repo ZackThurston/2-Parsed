@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/paper_background"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true">
 
     <!--<android.support.v7.widget.Toolbar-->
         <!--android:id="@+id/my_toolbar"-->
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Bill Cost"
-        android:id="@+id/bill_cost"
+        android:id="@+id/bill_amount"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_alignTop="@+id/bill_name"
@@ -42,17 +42,17 @@
         android:layout_height="wrap_content"
         android:text="Bill Description"
         android:id="@+id/bill_info"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/bill_date"
         android:layout_alignEnd="@+id/bill_name" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView"
-        android:layout_below="@+id/bill_cost"
-        android:layout_alignEnd="@+id/bill_cost" />
+        android:text="Bill Due Date"
+        android:id="@+id/bill_date"
+        android:layout_below="@+id/bill_amount"
+        android:layout_alignEnd="@+id/bill_amount" />
 
 
 </RelativeLayout>
