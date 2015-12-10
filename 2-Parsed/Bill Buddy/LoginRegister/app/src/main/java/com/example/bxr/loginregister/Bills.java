@@ -138,5 +138,4 @@ public class Bills extends AppCompatActivity implements View.OnClickListener {
             billList.setAdapter(adapter);
         }
     }
-
 }

@@ -42,4 +42,32 @@ public class User {
         this.last_name = "";
         this.house = house;
     }
+
+    public User(Integer user_id){
+        this.user_id = user_id;
+        this.email = "";
+        this.password = "";
+        this.first_name = "";
+        this.last_name = "";
+        this.house = "";
+    }
+    public User(){
+        this.first_name = "";
+        this.last_name = "";
+        this.email = "";
+        this.password = "";
+        this.user_id = 0;
+        this.house = "";
+    }
+
+    public String getFirst_name(){
+        return this.first_name;
+    }
+    public String getLast_name(){
+        return this.last_name;
+    }
+    public String getEmail(){
+        return this.email;
+    }
+
 }

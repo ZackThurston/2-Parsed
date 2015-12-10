@@ -24,7 +24,6 @@ public class Bill {
     public String getBill_name(){
         return this.bill_name;
     }
-
     public String getBill_amount(){
         return this.bill_amount;
     }

@@ -52,5 +52,47 @@ public class HttpULRConnect {
                 }
 
             }
-        }}}
+        }
+    }
+
+    public static String getMates(String uri){
+
+        BufferedReader reader = null;
+        try {
+
+            URL url = new URL(uri);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+            StringBuilder sb = new StringBuilder();
+            reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String line;
+            while ((line= reader.readLine())!=null) {
+
+                sb.append(line+"\n");
+
+
+            }
+            return sb.toString();
+
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+
+            if (reader!=null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                    return null;
+                }
+
+            }
+        }
+    }
+}
 
