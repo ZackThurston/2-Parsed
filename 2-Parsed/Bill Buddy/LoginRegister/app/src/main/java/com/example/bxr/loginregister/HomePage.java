@@ -127,10 +127,10 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                 startActivity(new Intent(this, Bills.class));
                 break;
 
-//            case R.id.tvMyProfile:
-//
-//                startActivity(new Intent(this, MyProfile.class));
-//                break;
+            case R.id.tvMyProfile:
+
+                startActivity(new Intent(this, MyProfile.class));
+                break;
 
         }
     }
@@ -152,6 +152,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         protected void onPostExecute(String s) {
             try {
                 User user = userLocalStore.getLoggedInUser();
+
                 JSONArray jarray = new JSONArray(s);
                 for (int i = 0; i < jarray.length(); i++) {
                     JSONObject json_data = jarray.getJSONObject(i);

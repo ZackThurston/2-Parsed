@@ -72,6 +72,7 @@ public class HttpULRConnect {
 
 
             }
+            Log.d("test44", sb.toString());
             return sb.toString();
 
 
