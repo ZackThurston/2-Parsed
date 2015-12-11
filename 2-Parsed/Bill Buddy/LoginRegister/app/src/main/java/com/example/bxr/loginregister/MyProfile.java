@@ -54,7 +54,7 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
 
         name.setText(user.first_name);
         lastName.setText(user.last_name);
-        if( user.house != "NULL")
+        if( !user.house.equals( "NULL"))
             house.setText(user.house);
         else
             house.setText("-");

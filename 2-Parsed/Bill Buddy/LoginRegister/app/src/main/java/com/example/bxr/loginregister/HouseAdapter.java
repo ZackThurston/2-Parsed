@@ -34,15 +34,15 @@ public class HouseAdapter extends ArrayAdapter<User> {
 
         }
         TextView first_name = (TextView) v.findViewById(R.id.first_name);
-        TextView last_name = (TextView) v.findViewById(R.id.last_name);
+//        TextView last_name = (TextView) v.findViewById(R.id.last_name);
         TextView email = (TextView) v.findViewById(R.id.email);
 
         if (first_name != null) {
             first_name.setText(user.getFirst_name());
         }
-        if (last_name != null) {
-            last_name.setText(user.getLast_name());
-        }
+//        if (last_name != null) {
+//            last_name.setText(user.getLast_name());
+//        }
         if (email != null) {
             email.setText(user.getEmail());
         }

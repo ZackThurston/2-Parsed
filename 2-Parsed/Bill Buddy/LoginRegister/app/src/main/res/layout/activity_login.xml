@@ -63,7 +63,7 @@
             android:id="@+id/tvRegisterLink"
             android:layout_width="wrap_content"
             android:text="@string/register_here"
-            android:paddingTop="15dp"
+            android:paddingTop="30dp"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_height="wrap_content" />

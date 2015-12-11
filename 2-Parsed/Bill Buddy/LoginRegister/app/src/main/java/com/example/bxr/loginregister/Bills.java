@@ -122,12 +122,12 @@ public class Bills extends AppCompatActivity implements View.OnClickListener {
                 JSONArray jarray = new JSONArray(s);
                 for (int i = 0; i < jarray.length(); i++) {
                     JSONObject json_data = jarray.getJSONObject(i);
-                    Bill resultRow = new Bill();
-                    resultRow.bill_name = json_data.getString("bill_name");
-                    resultRow.bill_amount = json_data.getString("bill_amount");
-                    resultRow.bill_date = json_data.getString("bill_date");
-                    resultRow.bill_info = json_data.getString("bill_info");
-                    arrayOfBills.add(resultRow);
+                        Bill resultRow = new Bill();
+                        resultRow.bill_name = json_data.getString("bill_name");
+                        resultRow.bill_amount = json_data.getString("bill_amount");
+                        resultRow.bill_date = json_data.getString("bill_date");
+                        resultRow.bill_info = json_data.getString("bill_info");
+                        arrayOfBills.add(resultRow);
                 }
             } catch (Exception e) {
                 Log.e("log_tag", "Error parsing data " + e.toString());

@@ -40,10 +40,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bill Description"
+        android:text="Comments"
+        android:layout_marginLeft="10dp"
         android:id="@+id/bill_info"
-        android:layout_below="@+id/bill_date"
-        android:layout_alignEnd="@+id/bill_name" />
+        android:layout_below="@+id/bill_date" />
 
     <TextView
         android:layout_width="wrap_content"

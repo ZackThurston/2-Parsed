@@ -46,9 +46,6 @@ public class BillAdapter extends ArrayAdapter<Bill> {
         if (bill_date != null) {
             bill_date.setText(bill.getBill_date());
         }
-        if (bill_info != null) {
-            bill_info.setText(bill.getBill_info());
-        }
 
         return v;
     }

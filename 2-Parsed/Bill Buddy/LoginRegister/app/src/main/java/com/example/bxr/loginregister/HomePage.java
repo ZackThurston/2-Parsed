@@ -55,7 +55,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         bBills = (Button) findViewById(R.id.bBills);
         tvMyProfile = (TextView) findViewById(R.id.tvMyProfile);
         first_name = (TextView) findViewById(R.id.first_name);
-        last_name = (TextView) findViewById(R.id.last_name);
+//        last_name = (TextView) findViewById(R.id.last_name);
         email = (TextView) findViewById(R.id.email);
 
         houseName = (TextView) findViewById(R.id.houseName);
@@ -152,17 +152,21 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         protected void onPostExecute(String s) {
             try {
                 User user = userLocalStore.getLoggedInUser();
-
                 JSONArray jarray = new JSONArray(s);
                 for (int i = 0; i < jarray.length(); i++) {
                     JSONObject json_data = jarray.getJSONObject(i);
+                    String temp = json_data.getString("house");
                     if( Integer.parseInt(json_data.getString("user_id")) == (user.user_id))
                         System.out.println("don't want to print out the local user twice");
+                    else if( !temp.equals(user.house))
+                        System.out.println("don't want to print out people in other houses " + temp + " compared to " + user.house);
                     else {
                         User otherUser = new User();
                         otherUser.first_name = json_data.getString("first_name");
                         otherUser.last_name = json_data.getString("last_name");
                         otherUser.email = json_data.getString("email");
+                        otherUser.house = json_data.getString("house");
+                        System.out.println("otherUser = " + otherUser);
                         arrayOfMates.add(otherUser);
                     }
                 }

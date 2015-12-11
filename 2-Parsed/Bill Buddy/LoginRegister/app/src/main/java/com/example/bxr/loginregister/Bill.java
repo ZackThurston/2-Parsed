@@ -33,4 +33,5 @@ public class Bill {
     public String getBill_info(){
         return this.bill_info;
     }
+
 }

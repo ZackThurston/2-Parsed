@@ -28,6 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Bill Name"
+        android:layout_marginLeft="10dp"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/etBillName"
@@ -39,6 +40,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Bill Amount"
+        android:layout_marginLeft="10dp"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/etBillAmount"
@@ -48,7 +50,8 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:text="Due Data - Format (mm/dd/yyyy)"
+        android:text="Due Date - Format (mm/dd/yyyy)"
+        android:layout_marginLeft="10dp"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/etDate"
@@ -58,7 +61,8 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:text="Bill Description"
+        android:text="Comments(optional)"
+        android:layout_marginLeft="10dp"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/etBillInfo"
